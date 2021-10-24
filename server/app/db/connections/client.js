@@ -1,6 +1,6 @@
 // Loads a reusable Mongo client for the application. (Keeps client conn open).
 import { MongoClient } from "mongodb"; // 'M...' means use with 'new'.
-import config from "./config.js.js";
+import config from "../../config.js";
 
 const client = new MongoClient(config.db.clientURL);
 
