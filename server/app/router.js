@@ -30,6 +30,8 @@ router.post("/storeGoods", async (req, res) => {
   res.json(createdStoreGood);
 });
 
+// TODO: Add router.put() for updating
+
 router.delete("/storeGoods", async (req, res) => {
   const deletedStoreGood = await collection.deleteOne({
     _id: ObjectId(req.body.id),
