@@ -25,4 +25,9 @@ router.get("/storeGoods/:id", async (req, res) => {
   res.json(storeGood);
 });
 
+router.post("/storeGoods", async (req, res) => {
+  const createdStoreGood = await collection.insertOne(req.body);
+  res.json(createdStoreGood);
+});
+
 export default router;
