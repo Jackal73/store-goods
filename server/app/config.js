@@ -5,6 +5,10 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export default {
-  db: process.env.DB_CLIENT_URL,
+  db: {
+    clientURL: process.env.DB_CLIENT_URL,
+    collectionName: "storeGoods",
+    name: "storeGoods",
+  },
   port: process.env.PORT || 3000,
 };

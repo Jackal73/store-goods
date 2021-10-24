@@ -2,7 +2,7 @@
 import { MongoClient } from "mongodb"; // 'M...' means use with 'new'.
 import config from "../../config.js";
 
-const client = new MongoClient(config.db);
+const client = new MongoClient(config.db.clientURL);
 
 export default {
   connect() {
