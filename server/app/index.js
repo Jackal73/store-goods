@@ -12,8 +12,14 @@ app.get("/", (_, res) => {
 
 app.use(express.json());
 
-// TODO: Lock down to specific origins
-app.use(cors());
+// Lock down CORS to specific origin
+
+// app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:8080",
+  })
+);
 app.use("/api", router);
 
 app.listen(config.port, () => {
