@@ -1,8 +1,8 @@
 // Entry point for the application
+import cors from "cors";
 import express from "express";
 import config from "./config.js";
 import router from "./router.js";
-import cors from "cors";
 
 const app = express();
 
