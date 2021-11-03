@@ -19,19 +19,28 @@ router.get("/storeGoods", async (_, res) => {
   res.json(storeGoods);
 });
 
-// get details of one specific product by id
+// get details of one specific product by :id ->(dynamic route)
 router.get("/storeGoods/:id", async (req, res) => {
   const storeGood = await collection.findOne({ _id: ObjectId(req.params.id) });
   res.json(storeGood);
 });
 
+// Insert a storeGood with insertOne
 router.post("/storeGoods", async (req, res) => {
   const createdStoreGood = await collection.insertOne(req.body);
   res.json(createdStoreGood);
 });
 
-// TODO: Add router.put() for updating
+// Update a storeGood with updateOne
+router.put("/storeGoods", async (req, res) => {
+  const updatedStoreGood = await collection.updateOne(
+    { _id: ObjectId(req.body.id) },
+    { $set: req.body.payload }
+  );
+  res.json(updatedStoreGood);
+});
 
+// Delete a storeGood by :id
 router.delete("/storeGoods", async (req, res) => {
   const deletedStoreGood = await collection.deleteOne({
     _id: ObjectId(req.body.id),
